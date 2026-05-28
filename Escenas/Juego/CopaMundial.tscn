@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://cclrtar1ccnj5"]
+
+[ext_resource type="Texture2D" uid="uid://m5sdijdkkmp5" path="res://Assets/Bloques/copamundial.png" id="1_oa37i"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_40nqx"]
+size = Vector2(193, 191)
+
+[node name="CopaMundial" type="StaticBody2D" unique_id=809947476]
+collision_layer = 8
+collision_mask = 8
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1817908779]
+texture = ExtResource("1_oa37i")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=662590923]
+position = Vector2(-0.5, 0.5)
+shape = SubResource("RectangleShape2D_40nqx")

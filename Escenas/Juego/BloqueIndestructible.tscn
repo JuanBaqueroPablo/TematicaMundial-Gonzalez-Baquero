@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://ccmdcxh4ofb5p"]
+
+[ext_resource type="Texture2D" uid="uid://yrpf5kc1ubhc" path="res://Assets/Bloques/Indestructibles.png" id="1_0cpba"]
+[ext_resource type="Script" uid="uid://copibsw8vkvdx" path="res://Scripts/bloqueIndestructible.gd" id="1_f0qu2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f0qu2"]
+size = Vector2(64, 64)
+
+[node name="BloqueIndestructible" type="StaticBody2D" unique_id=1819908520]
+collision_layer = 8
+collision_mask = 0
+script = ExtResource("1_f0qu2")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1627720635]
+position = Vector2(-4.7683716e-07, -0.50000256)
+scale = Vector2(1.75, 1.6093748)
+texture = ExtResource("1_0cpba")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=33106056]
+shape = SubResource("RectangleShape2D_f0qu2")

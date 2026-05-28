@@ -1,0 +1,81 @@
+[gd_scene format=3 uid="uid://ep71d2grcug7"]
+
+[ext_resource type="Script" uid="uid://bhc8n6hjiybhq" path="res://Scripts/controles.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://ljw4dtcg5ng1" path="res://Assets/Interfaz/fondo_menu.png" id="2"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_volver"]
+bg_color = Color(0.15, 0.15, 0.15, 0.75)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 1, 1, 0.25)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[node name="Controles" type="Control" unique_id=215396813]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1")
+
+[node name="fondo" type="TextureRect" parent="." unique_id=566371439]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2")
+stretch_mode = 6
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=2125324346]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -133.0
+offset_top = -102.5
+offset_right = 133.0
+offset_bottom = 102.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 18
+
+[node name="LabelTitulo" type="Label" parent="VBoxContainer" unique_id=1730596357]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_font_sizes/font_size = 32
+text = "CONTROLES"
+horizontal_alignment = 1
+
+[node name="LabelMover" type="Label" parent="VBoxContainer" unique_id=750266350]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "MOVERSE:          W A S D"
+horizontal_alignment = 1
+
+[node name="LabelBomba" type="Label" parent="VBoxContainer" unique_id=1426043808]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "PONER BOMBA:      ESPACIO"
+horizontal_alignment = 1
+
+[node name="BtnVolver" type="Button" parent="VBoxContainer" unique_id=996343815]
+custom_minimum_size = Vector2(240, 50)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_volver")
+text = "VOLVER"
+
+[connection signal="pressed" from="VBoxContainer/BtnVolver" to="." method="_on_btn_volver_pressed"]

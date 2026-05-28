@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://ck12icew5xl5s"]
+
+[ext_resource type="SpriteFrames" uid="uid://bx1rijb5x3jd6" path="res://Assets/Paises/argentina.tres" id="1_65lle"]
+[ext_resource type="Script" uid="uid://cl4c6j3cedx8n" path="res://Scripts/enemigo.gd" id="1_ylw57"]
+[ext_resource type="PackedScene" uid="uid://cu00iiygb8drr" path="res://Escenas/Juego/bomba.tscn" id="2_x2yhv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ylw57"]
+size = Vector2(32, 32)
+
+[node name="Enemigo" type="CharacterBody2D" unique_id=504815669 groups=["enemigos"]]
+collision_layer = 64
+collision_mask = 15
+script = ExtResource("1_ylw57")
+escena_bomba = ExtResource("2_x2yhv")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1292052371]
+position = Vector2(4, 10)
+scale = Vector2(0.43217054, 0.31308413)
+sprite_frames = ExtResource("1_65lle")
+animation = &"caminar"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1928443882]
+position = Vector2(8, 15)
+shape = SubResource("RectangleShape2D_ylw57")

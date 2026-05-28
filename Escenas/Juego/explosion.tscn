@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://6hcn0nklhu16"]
+
+[ext_resource type="Script" uid="uid://w5k6no1sw47c" path="res://Scripts/explosion.gd" id="1_ssp06"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ssp06"]
+size = Vector2(56, 32.5)
+
+[node name="Explosion" type="Area2D" unique_id=1197247014]
+collision_layer = 4
+collision_mask = 73
+script = ExtResource("1_ssp06")
+
+[node name="CollisionHorizontal" type="CollisionShape2D" parent="." unique_id=1361959305]
+position = Vector2(-12, 1.75)
+shape = SubResource("RectangleShape2D_ssp06")
+
+[node name="Timer" type="Timer" parent="." unique_id=2123625813]
+
+[node name="Node2D" type="Node2D" parent="." unique_id=1395642808]
+
+[node name="horizontal" type="ColorRect" parent="Node2D" unique_id=1591594427]
+offset_left = -16.0
+offset_top = -15.0
+offset_right = 16.0
+offset_bottom = 18.0
+color = Color(0.7254902, 0, 0, 1)

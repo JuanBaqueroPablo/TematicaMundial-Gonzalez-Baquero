@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://qhfqitt7ma6v"]
+
+[ext_resource type="Script" uid="uid://bllufxaj1kqf0" path="res://Scripts/bloqueDestructible.gd" id="1_cpx7a"]
+[ext_resource type="Texture2D" uid="uid://cx4jn15dw7jgs" path="res://Assets/Bloques/barreraIndividual.png" id="1_j3kkk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cpx7a"]
+size = Vector2(64, 64)
+
+[node name="BloqueDestructible" type="StaticBody2D" unique_id=1407869617 groups=["destructibles"]]
+position = Vector2(32, 32)
+collision_layer = 8
+collision_mask = 0
+script = ExtResource("1_cpx7a")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1743550365]
+texture = ExtResource("1_j3kkk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1672351209 groups=["destructibles"]]
+light_mask = 0
+visibility_layer = 0
+shape = SubResource("RectangleShape2D_cpx7a")
