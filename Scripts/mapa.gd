@@ -5,8 +5,8 @@ const filas = 11
 const vacio = 0
 const destructible = 1
 const indestructible = 2
-const prob_indestructible = 12
-const prob_destructible = 88
+const prob_indestructible = 10
+const prob_destructible = 90
 const escena_destructible = preload("res://Escenas/Juego/BloqueDestructible.tscn")
 const escena_indestructible = preload("res://Escenas/Juego/BloqueIndestructible.tscn")
 const escena_copa = preload("res://Escenas/Juego/CopaMundial.tscn")
@@ -109,9 +109,10 @@ func _conectar_jugador():
 		jugador.connect("jugador_murio", _on_jugador_murio)
 
 func _on_enemigo_murio():
+	await get_tree().process_frame
 	var enemigos_vivos = get_tree().get_nodes_in_group("enemigos").size()
 	if enemigos_vivos == 0:
-		get_tree().change_scene_to_file("res://Escenas//Juego/Victoria.tscn")
+		get_tree().change_scene_to_file("res://Escenas/Juego/Victoria.tscn")
 
 func _on_jugador_murio():
 	get_tree().change_scene_to_file("res://Escenas/Juego/Derrota.tscn")

@@ -28,16 +28,16 @@ func _physics_process(delta):
 	if esta_muerto:
 		return
 	var dir = Vector2.ZERO
-	if Input.is_key_pressed(KEY_LEFT):
+	if Input.is_key_pressed(KEY_A):
 		dir.x = -1
 		dir_actual = "izquierda"
-	elif Input.is_key_pressed(KEY_RIGHT):
+	elif Input.is_key_pressed(KEY_D):
 		dir.x = 1
 		dir_actual = "derecha"
-	elif Input.is_key_pressed(KEY_UP):
+	elif Input.is_key_pressed(KEY_W):
 		dir.y = -1
 		dir_actual = "arriba"
-	elif Input.is_key_pressed(KEY_DOWN):
+	elif Input.is_key_pressed(KEY_S):
 		dir.y = 1
 		dir_actual = "abajo"
 	if dir.length() > 0:

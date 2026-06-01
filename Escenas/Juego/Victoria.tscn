@@ -2,6 +2,15 @@
 
 [ext_resource type="Script" uid="uid://dwt6wtn7s8rgy" path="res://Scripts/victoria.gd" id="1_euxyl"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_euxyl"]
+bg_color = Color(0.118, 0.549, 0.165, 1)
+border_width_bottom = 3
+border_color = Color(0.05, 0.36, 0.09, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
 [node name="Victoria" type="Control" unique_id=860787790]
 layout_mode = 3
 anchors_preset = 8
@@ -43,9 +52,12 @@ theme_override_font_sizes/font_size = 40
 text = "¡GANASTE!"
 horizontal_alignment = 1
 
-[node name="BtnVolver" type="Button" parent="ColorRect/VBoxContainer" unique_id=1318387972]
-custom_minimum_size = Vector2(250, 50)
+[node name="BtnVolver" type="Button" parent="ColorRect/VBoxContainer" unique_id=1762318420]
+custom_minimum_size = Vector2(240, 50)
 layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 22
+theme_override_styles/normal = SubResource("StyleBoxFlat_euxyl")
 text = "Volver a jugar"
 
-[connection signal="pressed" from="ColorRect/VBoxContainer/BtnVolver" to="." method="_on_btn_volver_a_jugar_pressed"]
+[connection signal="pressed" from="ColorRect/VBoxContainer/BtnVolver" to="." method="_on_btn_volver_pressed"]

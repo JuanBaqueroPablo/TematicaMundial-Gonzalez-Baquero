@@ -97,6 +97,9 @@ func _mover_perseguir(delta):
 	if tiempo_poner_bomba <= 0.0:
 		_revisar_bloque_cerca()
 		tiempo_poner_bomba = randf_range(2.0, 4.0)
+	var distancia = global_position.distance_to(jugador.global_position)
+	if distancia < 80:
+		poner_bomba()
 
 func _mover_esconderse(delta):
 	tiempo_escondido -= delta
@@ -134,6 +137,15 @@ func poner_bomba():
 	estado_actual = Estado.ESCONDERSE
 	tiempo_escondido = 2.5
 
+func _esquivar_explosiones():
+	var explosiones = get_tree().get_nodes_in_group("explosiones")
+	for explosion in explosiones:
+		if global_position.distance_to(explosion.global_position) < 96:
+			estado_actual = Estado.ESCONDERSE
+			tiempo_escondido = 2.0
+			direccion_escape = (global_position - explosion.global_position).normalized()
+			return
+
 func _actualizar_animacion():
 	var dir = velocity.normalized()
 	if dir == Vector2.ZERO:
@@ -157,6 +169,9 @@ func recibir_danio():
 		esta_muerto = true
 		velocity = Vector2.ZERO
 		sprite.play("morir")
+		await get_tree().create_timer(1.7).timeout
+		enemigo_murio.emit()
+		queue_free()
 
 func _on_animated_sprite_2d_animation_finished():
 	if sprite.animation == "morir":

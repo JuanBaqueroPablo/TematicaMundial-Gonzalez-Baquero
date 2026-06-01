@@ -5,6 +5,7 @@ var rango = 1
 var dueño = null
 
 func _ready():
+	add_to_group("explosiones")
 	temporizador.wait_time = 0.8
 	temporizador.one_shot = true
 	temporizador.start()
