@@ -2,9 +2,10 @@ extends Area2D
 
 signal explotar
 
-var rango= 1
-var tiempo= 3.0
+var rango = 1
+var tiempo = 3.0
 var jugador = null
+var dueño = null
 
 @onready var sprite = $AnimatedSprite2D
 @onready var temporizador = $Timer
@@ -12,7 +13,7 @@ var jugador = null
 @export var escena_explosion: PackedScene
 
 func _ready():
-	if DatosJuego.pais_jugador == "Argentina":
+	if DatosJuego.pais_jugador == "argentina":
 		rango = 2
 	sprite.play("latiendo")
 	temporizador.wait_time = tiempo
@@ -42,9 +43,11 @@ func _explotar():
 			crear_explosion(pos)
 	
 	queue_free()
+
 func crear_explosion(pos: Vector2):
 	if escena_explosion == null:
 		return
 	var exp = escena_explosion.instantiate()
 	exp.global_position = pos
+	exp.dueño = dueño
 	get_parent().add_child(exp)

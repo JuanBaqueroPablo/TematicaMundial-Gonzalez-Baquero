@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://5s8havkd3qb6" path="res://Scripts/jugador.gd" id="1_8o684"]
 [ext_resource type="PackedScene" uid="uid://cu00iiygb8drr" path="res://Escenas/Juego/bomba.tscn" id="2_7st5j"]
-[ext_resource type="SpriteFrames" uid="uid://bx1rijb5x3jd6" path="res://Assets/Paises/argentina.tres" id="3_pyjd4"]
+[ext_resource type="SpriteFrames" uid="uid://c6jr8nxqpfate" path="res://Assets/Paises/uruguay.tres" id="3_pyjd4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hcpjn"]
 size = Vector2(32, 32)
@@ -17,7 +17,7 @@ escena_bomba = ExtResource("2_7st5j")
 position = Vector2(17.5, -16.238926)
 scale = Vector2(0.35156256, 0.31138304)
 sprite_frames = ExtResource("3_pyjd4")
-animation = &"caminar"
+animation = &"parado"
 autoplay = "parado"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1975707670]

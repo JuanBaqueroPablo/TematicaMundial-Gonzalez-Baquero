@@ -46,7 +46,7 @@ func _on_btn_francia_pressed():
 func _on_btn_italia_pressed():
 	DatosJuego.pais_jugador = "italia"
 	DatosJuego.velocidad = 50
-	DatosJuego.vida = 2
+	DatosJuego.vida = 3
 	DatosJuego.max_bombas = 1
 	DatosJuego.tiempo_bomba = 5.0
 	mostrar_info("Italia", "Resistente", "3 golpes para morir, menor velocidad")

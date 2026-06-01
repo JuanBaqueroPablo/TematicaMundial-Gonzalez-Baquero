@@ -13,6 +13,7 @@ const escena_copa = preload("res://Escenas/Juego/CopaMundial.tscn")
 const textura_suelo = preload("res://Assets/Bloques/barrera.png")
 
 @onready var capa_suelo = $CapaSuelo
+@onready var pausa = $Pausa
 
 var matriz: Array = []
 var bloques: Array = []
@@ -28,11 +29,23 @@ const zonas_seguras = [
 ]
 
 func _ready() -> void:
+	pausa.visible = false
 	idtiles = capa_suelo.tile_set.get_source_id(0)
 	_generar_mapa()
 	_colocar_copa()
 	_conectar_enemigos()
 	_conectar_jugador()
+	await get_tree().physics_frame
+	$NavigationRegion2D.bake_navigation_polygon()
+
+func _process(delta):
+	if Input.is_action_just_pressed("ui_cancel"):
+		if get_tree().paused:
+			get_tree().paused = false
+			pausa.visible = false
+		else:
+			get_tree().paused = true
+			pausa.visible = true
 
 func _generar_mapa() -> void:
 	matriz.clear()
@@ -98,10 +111,10 @@ func _conectar_jugador():
 func _on_enemigo_murio():
 	var enemigos_vivos = get_tree().get_nodes_in_group("enemigos").size()
 	if enemigos_vivos == 0:
-		get_tree().change_scene_to_file("res://Escenas/victoria.tscn")
+		get_tree().change_scene_to_file("res://Escenas//Juego/Victoria.tscn")
 
 func _on_jugador_murio():
-	get_tree().change_scene_to_file("res://Escenas/derrota.tscn")
+	get_tree().change_scene_to_file("res://Escenas/Juego/Derrota.tscn")
 
 func obtener_celda(fila: int, columna: int) -> int:
 	return matriz[fila][columna]
